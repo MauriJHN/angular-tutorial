@@ -1,0 +1,20 @@
+<h1 class="app-title"><a [routerLink]="['/']">Angular Playground</a></h1>
+
+<main>
+  <header>
+    <p>This is just a playground to learn about Angular and create custom stuff.</p>
+  </header>
+  <nav>
+    @for (demo of demos | keyvalue; track demo.key) {
+        <a class="router-link" [routerLink]="[demo.value.url]">
+            @if (demo.value.imgUrl !== '') {
+                <img [src]="demo.value.imgUrl" alt="logo" aria-hidden="true" />
+            }
+            {{ demo.key }}
+        </a>
+    }
+  </nav>
+  <section class="content">
+    <router-outlet />
+  </section>
+</main>
